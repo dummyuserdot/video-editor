@@ -143,30 +143,10 @@ editor/
 
 
 
-# AI Video Studio - Environment Variables
-# Copy this file to .env.local and fill in your values
-
-# =============================================================================
-# GEMINI API (Required for AI features)
-# Get your key at: https://aistudio.google.com/app/apikey
-# =============================================================================
 GEMINI_API_KEY=your_gemini_api_key_here
-
-# Optional: Override default model (default: gemini-2.0-flash)
 GEMINI_MODEL=gemini-3.8-flash
-
-# Optional: Fallback model if primary is unavailable
 GEMINI_FALLBACK_MODEL=gemini-3.5-flash
-
-# =============================================================================
-# APP CONFIG
-# =============================================================================
-# Maximum file size for uploads (bytes, default 2GB)
 MAX_FILE_SIZE_BYTES=2147483648
-
-# Enable/disable AI features (true/false)
 NEXT_PUBLIC_AI_ENABLED=true
-
-# App URL (used for CORS and redirects in production)
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 
