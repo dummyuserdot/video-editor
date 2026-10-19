@@ -91,35 +91,35 @@ npm run test
 ```
 editor/
 +-- src/
-¦   +-- app/
-¦   ¦   +-- api/
-¦   ¦   ¦   +-- ai/
-¦   ¦   ¦       +-- route.ts          # Server-side Gemini API route
-¦   ¦   +-- layout.tsx                # App layout & styling
-¦   ¦   +-- page.tsx                  # Root application router (Dashboard / Editor)
-¦   +-- components/
-¦   ¦   +-- ai-assistant/             # Gemini chat assistant & plan review
-¦   ¦   +-- dashboard/                # Project dashboard, creation & IDB storage
-¦   ¦   +-- export/                   # Video export modal with FFmpeg WASM
-¦   ¦   +-- inspector/                # Clip & caption properties inspector
-¦   ¦   +-- media-library/            # Asset import, drag-and-drop & previews
-¦   ¦   +-- preview/                  # Video preview player with live overlays
-¦   ¦   +-- timeline/                 # Multi-track timeline, tracks, ruler & playhead
-¦   ¦   +-- toolbar/                  # Top navigation, aspect ratio & editing tools
-¦   ¦   +-- ui/                       # Reusable UI primitives (Button, Modal, Badge)
-¦   +-- lib/
-¦   ¦   +-- ai-validation.ts          # Strict Zod schema validator for AI actions
-¦   ¦   +-- ffmpeg-renderer.ts        # In-browser FFmpeg rendering pipeline
-¦   ¦   +-- idb.ts                    # IndexedDB persistence layer
-¦   ¦   +-- ids.ts                    # Unique ID generator
-¦   ¦   +-- media-import.ts           # Metadata, thumbnail & waveform generation
-¦   ¦   +-- project-utils.ts          # Pure timeline manipulation functions
-¦   ¦   +-- time.ts                   # Timecode formatters & parsers
-¦   +-- store/
-¦   ¦   +-- editor-store.ts           # Central Zustand store with Immer
-¦   +-- tests/                        # Vitest unit & integration test suites
-¦   +-- types/
-¦       +-- project.ts                # TypeScript canonical project data model
+Â¦   +-- app/
+Â¦   Â¦   +-- api/
+Â¦   Â¦   Â¦   +-- ai/
+Â¦   Â¦   Â¦       +-- route.ts          # Server-side Gemini API route
+Â¦   Â¦   +-- layout.tsx                # App layout & styling
+Â¦   Â¦   +-- page.tsx                  # Root application router (Dashboard / Editor)
+Â¦   +-- components/
+Â¦   Â¦   +-- ai-assistant/             # Gemini chat assistant & plan review
+Â¦   Â¦   +-- dashboard/                # Project dashboard, creation & IDB storage
+Â¦   Â¦   +-- export/                   # Video export modal with FFmpeg WASM
+Â¦   Â¦   +-- inspector/                # Clip & caption properties inspector
+Â¦   Â¦   +-- media-library/            # Asset import, drag-and-drop & previews
+Â¦   Â¦   +-- preview/                  # Video preview player with live overlays
+Â¦   Â¦   +-- timeline/                 # Multi-track timeline, tracks, ruler & playhead
+Â¦   Â¦   +-- toolbar/                  # Top navigation, aspect ratio & editing tools
+Â¦   Â¦   +-- ui/                       # Reusable UI primitives (Button, Modal, Badge)
+Â¦   +-- lib/
+Â¦   Â¦   +-- ai-validation.ts          # Strict Zod schema validator for AI actions
+Â¦   Â¦   +-- ffmpeg-renderer.ts        # In-browser FFmpeg rendering pipeline
+Â¦   Â¦   +-- idb.ts                    # IndexedDB persistence layer
+Â¦   Â¦   +-- ids.ts                    # Unique ID generator
+Â¦   Â¦   +-- media-import.ts           # Metadata, thumbnail & waveform generation
+Â¦   Â¦   +-- project-utils.ts          # Pure timeline manipulation functions
+Â¦   Â¦   +-- time.ts                   # Timecode formatters & parsers
+Â¦   +-- store/
+Â¦   Â¦   +-- editor-store.ts           # Central Zustand store with Immer
+Â¦   +-- tests/                        # Vitest unit & integration test suites
+Â¦   +-- types/
+Â¦       +-- project.ts                # TypeScript canonical project data model
 +-- vitest.config.ts                  # Vitest configuration
 +-- package.json
 +-- README.md
@@ -134,3 +134,39 @@ editor/
 - **Images**: PNG, JPG, JPEG, WebP, GIF
 - **Subtitles**: SRT, custom synchronized captions
 - **Aspect Ratios**: 16:9 (YouTube), 9:16 (Shorts/Reels/TikTok), 1:1 (Square), 4:3 (Classic)
+
+
+
+
+
+
+
+
+
+# AI Video Studio - Environment Variables
+# Copy this file to .env.local and fill in your values
+
+# =============================================================================
+# GEMINI API (Required for AI features)
+# Get your key at: https://aistudio.google.com/app/apikey
+# =============================================================================
+GEMINI_API_KEY=your_gemini_api_key_here
+
+# Optional: Override default model (default: gemini-2.0-flash)
+GEMINI_MODEL=gemini-3.8-flash
+
+# Optional: Fallback model if primary is unavailable
+GEMINI_FALLBACK_MODEL=gemini-3.5-flash
+
+# =============================================================================
+# APP CONFIG
+# =============================================================================
+# Maximum file size for uploads (bytes, default 2GB)
+MAX_FILE_SIZE_BYTES=2147483648
+
+# Enable/disable AI features (true/false)
+NEXT_PUBLIC_AI_ENABLED=true
+
+# App URL (used for CORS and redirects in production)
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+
